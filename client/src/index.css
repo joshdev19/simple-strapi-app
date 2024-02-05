@@ -27,8 +27,14 @@ input {
   background: transparent;
 }
 
+input,
+textarea {
+  width: 100%;
+  margin: 1em 0;
+}
+
 a {
-  color: inherit  ;
+  color: inherit;
 }
 
 button {
@@ -47,6 +53,7 @@ button {
 
 /* defaults for 100% width */
 .wrapper nav,
+.wrapper .form-wrapper,
 .wrapper .cards-wrapper,
 .wrapper footer {
   width: 100%;
@@ -71,6 +78,29 @@ button {
   border-radius: 5px;
   border: 1px solid white;
   padding: 1em 1.5em;
+}
+
+.wrapper .form-wrapper {
+  margin: 2em 0;
+}
+
+.wrapper .form-wrapper form {
+  width: 450px;
+  margin: auto;
+}
+
+.wrapper .form-wrapper form textarea::-webkit-scrollbar {
+  width: 0px;
+}
+
+.wrapper .form-wrapper form textarea {
+  height: 150px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.wrapper .form-wrapper form button {
+  margin: 1em auto;
 }
 
 .wrapper .cards-wrapper {
