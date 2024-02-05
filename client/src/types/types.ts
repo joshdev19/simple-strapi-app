@@ -3,3 +3,7 @@ export type PropTypes = {
     title: string;
     description: string;
 }
+
+export type DataTypes <T> = {
+    data: T & PropTypes
+}
