@@ -112,8 +112,8 @@ button {
   border-radius: 5px;
   border: 1px solid white;
   margin: 1em;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 220px;
   flex-direction: column;
   justify-content: center;
 }
