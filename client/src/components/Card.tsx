@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
-import { PropTypes } from "../types/types"
+import { AttributeTypes } from "../types/types"
 
-const Card = ( { id, title, description }: PropTypes ) => {
+const Card = ( { id, attributes }: AttributeTypes ) => {
   
   return (
     <Link to={`/update/${id}`}>
-      <p className="title"> { title } </p>
-      <p className="description"> { description } </p>
+      <p className="title"> { attributes?.title } </p>
+      <p className="description"> { attributes?.description } </p>
     </Link>
   )
 
