@@ -1,6 +1,16 @@
+import Card from "../components/Card"
+import Footer from "../components/Footer"
+import Nav from "../components/Nav"
+
 const Index = () => {
   return (
-    <div>Index</div>
+    <div className="wrapper">
+      <Nav/>
+      <div className="cards-wrapper">
+        <Card id="1" title="test title" description="some description"/>
+      </div>
+      <Footer/>
+    </div>
   )
 }
 
