@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { PropTypes } from "../types/types"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import axios from "axios";
 import { toast } from "react-toastify";
 import Nav from "../components/Nav";
@@ -9,6 +9,8 @@ import Footer from "../components/Footer";
 const Update = () => {
 
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const [ values, setValues ] = useState<PropTypes>(
     {
@@ -23,14 +25,15 @@ const Update = () => {
 
       try {
         
-        const request = await axios.put('');
+        const request = await axios.get(`todos/${id}`);
 
         const response = await request.data;
 
+        setValues( response?.data.attributes )
 
       } catch (error) {
         
-        console.log(error)
+        toast.error("Failed to fetch the data")
 
       }
 
@@ -52,9 +55,41 @@ const Update = () => {
   const updateHandler = async () => {
 
     try {
-      
+        
+      const request = await axios.put(`todos/${id}`, { data: values } );
+
+      const response = await request.data;
+
+      if (response?.data) {
+        toast.success("Updated Successfully");
+        navigate('/')
+      }
+
     } catch (error) {
       
+      toast.error("Failed to update the todo")
+
+    }
+
+  }
+
+  const deleteHandler = async () => {
+
+    try {
+        
+      const request = await axios.delete(`todos/${id}`);
+
+      const response = await request.data;
+
+      if (response?.data) {
+        toast.success("Deleted Successfully");
+        navigate('/')
+      }
+
+    } catch (error) {
+      
+      toast.error("Failed to delete the todo")
+
     }
 
   }
@@ -65,9 +100,10 @@ const Update = () => {
       <div className="form-wrapper">
         <form>
           <h2> Update Todo </h2>
-          <input type="text" name="" onChange={ controlledInputs } placeholder="Title..." value={ values?.title } />
+          <input type="text" name="title" onChange={ controlledInputs } placeholder="Title..." value={ values?.title } />
           <textarea name="description" onChange={ controlledInputs } placeholder="Description..." value={ values?.description } ></textarea>
-          <button type="button" onClick={ updateHandler }> ADD </button>
+          <button type="button" onClick={ updateHandler }> Update </button>
+          <button type="button" onClick={ deleteHandler }> DELETE TODO </button>
         </form>
       </div>
       <Footer/>

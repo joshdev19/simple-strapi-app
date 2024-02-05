@@ -1,11 +1,14 @@
 import { useState } from "react"
 import { PropTypes } from "../types/types"
 import axios from "axios";
-import { toast } from "react-toastify";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Add = () => {
+
+  const navigate = useNavigate();
 
   const [ values, setValues ] = useState<PropTypes>(
     {
@@ -27,15 +30,18 @@ const Add = () => {
 
     try {
       
-      const request = await axios.post('');
+      const request = await axios.post('todos', { data: values } );
 
       const response = await request.data;
 
-      console.log(response)
+      if (response?.data) {
+        toast.success("Added Successfully");
+        navigate('/')
+      }
 
     } catch (error) {
       
-      console.log(error)
+      toast.error("Failed to add the todo")
 
     }
 
@@ -47,7 +53,7 @@ const Add = () => {
       <div className="form-wrapper">
         <form>
           <h2> Add New Todo </h2>
-          <input type="text" name="" onChange={ controlledInputs } placeholder="Title..." value={ values?.title } />
+          <input type="text" name="title" onChange={ controlledInputs } placeholder="Title..." value={ values?.title } />
           <textarea name="description" onChange={ controlledInputs } placeholder="Description..." value={ values?.description } ></textarea>
           <button type="button" onClick={ addHandler }> ADD </button>
         </form>
