@@ -1,9 +1,6 @@
 export type PropTypes = {
+    attributes?: any;
     id?: ( number | string );
     title: string;
     description: string;
-}
-
-export type DataTypes <T> = {
-    data: T & PropTypes
 }
