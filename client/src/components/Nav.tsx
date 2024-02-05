@@ -5,7 +5,7 @@ const Nav = () => {
     return (
         <nav>
             <Link to="/"> SSTA </Link>
-            <button type="button"> + ADD TODO </button>
+            <Link to="/add" className="add"> + ADD TODO </Link>
         </nav>
     )
 

@@ -67,6 +67,12 @@ button {
   padding: 0 1.5em;
 }
 
+.wrapper nav .add {
+  border-radius: 5px;
+  border: 1px solid white;
+  padding: 1em 1.5em;
+}
+
 .wrapper .cards-wrapper {
   justify-content: center;
   margin: 2em 0;
