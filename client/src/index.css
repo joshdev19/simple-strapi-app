@@ -116,11 +116,14 @@ button {
   height: 220px;
   flex-direction: column;
   justify-content: center;
+  padding: 1em;
+  text-align: center;
 }
 
 .wrapper .cards-wrapper a p {
   padding: .5em;
   word-wrap: break-word;
+  width: 100%;
 }
 
 .wrapper .cards-wrapper a .title {
