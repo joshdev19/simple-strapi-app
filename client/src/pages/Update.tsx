@@ -3,6 +3,8 @@ import { PropTypes } from "../types/types"
 import { useParams } from "react-router-dom"
 import axios from "axios";
 import { toast } from "react-toastify";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const Update = () => {
 
@@ -58,11 +60,18 @@ const Update = () => {
   }
 
   return (
-    <form>
-      <input type="text" name="" onChange={ controlledInputs } placeholder="Title..." value={ values?.title } />
-      <textarea name="description" onChange={ controlledInputs } placeholder="Description..." value={ values?.description } ></textarea>
-      <button type="button" onClick={ updateHandler }> ADD </button>
-    </form>
+    <div className="wrapper">
+      <Nav/>
+      <div className="form-wrapper">
+        <form>
+          <h2> Update Todo </h2>
+          <input type="text" name="" onChange={ controlledInputs } placeholder="Title..." value={ values?.title } />
+          <textarea name="description" onChange={ controlledInputs } placeholder="Description..." value={ values?.description } ></textarea>
+          <button type="button" onClick={ updateHandler }> ADD </button>
+        </form>
+      </div>
+      <Footer/>
+    </div>
   )
 }
 

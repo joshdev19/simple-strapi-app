@@ -2,6 +2,8 @@ import { useState } from "react"
 import { PropTypes } from "../types/types"
 import axios from "axios";
 import { toast } from "react-toastify";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const Add = () => {
 
@@ -40,11 +42,18 @@ const Add = () => {
   }
 
   return (
-    <form>
-      <input type="text" name="" onChange={ controlledInputs } placeholder="Title..." value={ values?.title } />
-      <textarea name="description" onChange={ controlledInputs } placeholder="Description..." value={ values?.description } ></textarea>
-      <button type="button" onClick={ addHandler }> ADD </button>
-    </form>
+    <div className="wrapper">
+      <Nav/>
+      <div className="form-wrapper">
+        <form>
+          <h2> Add New Todo </h2>
+          <input type="text" name="" onChange={ controlledInputs } placeholder="Title..." value={ values?.title } />
+          <textarea name="description" onChange={ controlledInputs } placeholder="Description..." value={ values?.description } ></textarea>
+          <button type="button" onClick={ addHandler }> ADD </button>
+        </form>
+      </div>
+      <Footer/>
+    </div>
   )
 }
 
