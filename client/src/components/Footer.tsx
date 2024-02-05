@@ -1,6 +1,8 @@
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <footer>
+      <p> Simple Strapi Todo App | 2024 </p>
+    </footer>
   )
 }
 
