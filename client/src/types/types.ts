@@ -4,3 +4,8 @@ export type PropTypes = {
     title: string;
     description: string;
 }
+
+export type AttributeTypes = {
+    attributes: PropTypes;
+    id: ( number | string );
+}
