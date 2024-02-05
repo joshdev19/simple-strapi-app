@@ -3,11 +3,11 @@ import Card from "../components/Card"
 import Footer from "../components/Footer"
 import Nav from "../components/Nav"
 import axios from "axios"
-import { DataTypes, PropTypes } from "../types/types"
+import { PropTypes } from "../types/types"
 
 const Index = () => {
 
-  const [ todos, setTodos ] = useState<DataTypes<PropTypes>[]>();
+  const [ todos, setTodos ] = useState<PropTypes[]>();
 
   useEffect(() => {
 
@@ -38,7 +38,7 @@ const Index = () => {
       <Nav/>
       <div className="cards-wrapper">
         {
-          todos && todos.map( t => <Card key={ t?.data.id } { ...t?.data } /> )
+          todos && todos.map( t => <Card key={ t?.id } { ...t?.attributes } /> )
         }
       </div>
       <Footer/>
